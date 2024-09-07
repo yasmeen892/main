@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Local and Session storage</h1>
+    <input id="name" type="text"  placeholder="enter your name">
+  
+    <button id="saveName">Save name</button>
+    <button id="LoadNAame">load name</button>
+
+    <input id="temporary " type="text" placeholder="temporary">
+    <button id="Savetemporary ">Save temporary value</button>
+    <button id="getTemporary ">load temporary value</button>
+
+    <p id="result"></p>
+
+    <script>
+        let result=document.getElementById("result");
+        let name =document.getElementById("name");
+          document.getElementById("saveName").addEventListener("click", function saveDataInlocalStorage() {
+            localStorage.setItem(name,"your name saved in local");
+            window.alert(name);
+
+        });
+        document.getElementById("LoadNAame").addEventListener("click", function getDataFromLocalStorage() {
+            let localData=localStorage.getItem("name");
+          
+            let name = document.getElementById("name").value;
+            result.innerHTML=name;  
+
+        });
+
+
+        document.getElementById("Savetemporary").addEventListener("click", function saveDataInSessionStorage() {
+            sessionStorage.setItem("temporary","Data in Session Storage");
+            let sessionData=sessionStorage.getItem("temporary");
+            window.alert(sessionData);
+
+        });
+
+             document.getElementById("getTemporary").addEventListener("click", function getDataFromSessionStorage() {
+            
+            let session=sessionStorage.getItem("temporary");
+          
+            let temporary = document.getElementById("temporary").value;
+             result.innerHTML=temporary; 
+        });
+    </script>
+    
+</body>
+</html>
